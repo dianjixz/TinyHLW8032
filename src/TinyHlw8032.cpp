@@ -8,6 +8,7 @@ TinyHlw8032::TinyHlw8032()
 {
     data_update_flage = 0;
     encodedCharCount = 0;
+    energy_update_flage = 0;
 }
 bool TinyHlw8032::Checksum()
 {
@@ -79,7 +80,27 @@ bool TinyHlw8032::encode(char c)
         Power_Factor = Power / (Voltage * Current);
 
         data_update_flage = true;
+        energy_update_flage = true;
         encodedCharCount = 0;
+    }
+    return 1;
+}
+bool TinyHlw8032::encode(char c, unsigned long long tims)
+{
+    static unsigned long long tims_old = 0;
+    encode(c);
+    if (energy_update_flage)
+    {
+        if (tims_old != 0)
+        {
+            Energy += Power * ((tims - tims_old) / 1000);
+            tims_old = tims;
+        }
+        else
+        {
+            tims_old = tims;
+        }
+        energy_update_flage = false;
     }
     return 1;
 }

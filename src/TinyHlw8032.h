@@ -15,7 +15,8 @@ class TinyHlw8032
 {
 public:
     TinyHlw8032();
-    bool encode(char c); // process one character received from GPS
+    bool encode(char c);                          // process one character received from GPS
+    bool encode(char c, unsigned long long tims); // process one character received from GPS
     TinyHlw8032 &operator<<(char c)
     {
         encode(c);
@@ -26,7 +27,7 @@ public:
     float Current;
     float Power;
     float Power_Factor;
-    unsigned long long int Energy;
+    double Energy;
 
     static const char *libraryVersion() { return _HLW8032_VERSION; }
 
@@ -41,12 +42,13 @@ public:
     float get_Current() { return Current; }
     float get_Power() { return Power; }
     float get_Power_Factor() { return Power_Factor; }
-    unsigned long long int get_Energy() { return Energy; }
+    double get_Energy() { return Energy; }
 
 private:
     float VoltageCoefficient;
     float CurrentCoefficient;
     bool data_update_flage;
+    bool energy_update_flage;
     char SerialTemps[_HLW8032_MAX_FIELD_SIZE];
 
     int encodedCharCount;
