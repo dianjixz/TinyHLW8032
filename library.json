@@ -1,0 +1,22 @@
+{
+  "name": "TinyHLW8032",
+  "version": "0.0.1",
+  "keywords": "HLW8032, hlw8032, hlw, 8032",
+  "description": "A new, customizable Arduino HLW8032 parsing library",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/dianjixz/TinyHLW8032.git"
+  },
+  "authors":
+  [
+    {
+       "name": "dianjixz",
+       "email": "18637716021@163.com",
+       "url": "https://github.com/dianjixz",
+       "maintainer": true
+    }
+  ],
+  "frameworks": "arduino",
+  "platforms": "*"
+}

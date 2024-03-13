@@ -1,0 +1,12 @@
+#######################################
+# Syntax Coloring Map for TinyHLW8032
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+TinyHLW8032	KEYWORD1
+TinyHLW8032Voltage	KEYWORD1
+TinyHLW8032Current	KEYWORD1
+TinyHLW8032Power	KEYWORD1
