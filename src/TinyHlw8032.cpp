@@ -37,7 +37,7 @@ bool TinyHlw8032::encode(char c)
     uint32_t PowerData;
     float a, b;
     struct HLW8032BitFields *HLW8032Pt = (struct HLW8032BitFields *)SerialTemps;
-    if (encodedCharCount < 24)
+    if (encodedCharCount < _HLW8032_MAX_FIELD_SIZE)
     {
         SerialTemps[encodedCharCount++] = c;
     }

@@ -11,7 +11,7 @@ void loop()
 {
   while (Serial->available())
   {
-    if (hlw8032.encode(Serial->read()))
+    if (hlw8032.encode(Serial->read(), millis()))
     {
       if (hlw8032.isUpdated())
       {
@@ -19,6 +19,7 @@ void loop()
         float V =  hlw8032.get_Voltage();
         float A = hlw8032.get_Current();
         float P = hlw8032.get_Power();
+        double E = hlw8032.get_Energy();
       }
     }
   }
